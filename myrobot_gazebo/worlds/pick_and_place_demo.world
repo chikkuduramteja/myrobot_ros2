@@ -1,0 +1,132 @@
+<?xml version="1.0" ?>
+
+<sdf version="1.7">
+  <world name="default">
+
+    <!-- Plugin for simulating physics -->
+    <plugin
+      filename="gz-sim-physics-system"
+      name="gz::sim::systems::Physics">
+    </plugin>
+
+    <!-- Plugin for handling user commands -->
+    <plugin
+      filename="gz-sim-user-commands-system"
+      name="gz::sim::systems::UserCommands">
+    </plugin>
+
+    <!-- Plugin for broadcasting scene updates -->
+    <plugin
+      filename="gz-sim-scene-broadcaster-system"
+      name="gz::sim::systems::SceneBroadcaster">
+    </plugin>
+
+    <!-- Plugin for sensor handling -->
+    <plugin
+      filename="gz-sim-sensors-system"
+      name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+
+    <!-- To add realistic gravity, do: 0.0 0.0 -9.8, otherwise do 0.0 0.0 0.0 -->
+    <gravity>0.0 0.0 -9.8</gravity>
+
+    <!-- Include a model of the Sun from an external URI -->
+    <include>
+      <uri>
+        https://fuel.gazebosim.org/1.0/OpenRobotics/models/Sun
+      </uri>
+    </include>
+
+    <!-- Include a model of the Ground Plane from an external URI -->
+    <include>
+      <uri>
+        https://fuel.gazebosim.org/1.0/OpenRobotics/models/Ground Plane
+      </uri>
+    </include>
+
+    <!-- Simple shape objects for visual context only. -->
+    <model name="demo_blue_box">
+      <static>false</static>
+      <pose>0.25 -0.25 0.025 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.05</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.25 1.0 1</ambient>
+            <diffuse>0.1 0.25 1.0 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="demo_green_sphere">
+      <static>false</static>
+      <pose>0.36 -0.18 0.03 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.03</radius>
+            </sphere>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <sphere>
+              <radius>0.03</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <ambient>0.0 0.8 0.25 1</ambient>
+            <diffuse>0.0 0.8 0.25 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="demo_orange_cylinder">
+      <static>false</static>
+      <pose>0.30 -0.35 0.04 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.025</radius>
+              <length>0.08</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.025</radius>
+              <length>0.08</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>1.0 0.45 0.0 1</ambient>
+            <diffuse>1.0 0.45 0.0 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Define scene properties -->
+    <scene>
+      <shadows>false</shadows>
+    </scene>
+
+  </world>
+</sdf>

@@ -1,0 +1,38 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+  <model name='demo_box'>
+    <static>false</static>
+    <link name='link'>
+      <inertial>
+        <mass>0.03</mass>
+        <inertia>
+          <ixx>0.00003</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00003</iyy>
+          <iyz>0</iyz>
+          <izz>0.00003</izz>
+        </inertia>
+      </inertial>
+      <collision name='collision'>
+        <geometry>
+          <box>
+            <size>0.04 0.04 0.04</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visual'>
+        <geometry>
+          <box>
+            <size>0.04 0.04 0.04</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.1 0.35 1.0 1</ambient>
+          <diffuse>0.1 0.35 1.0 1</diffuse>
+          <specular>0.3 0.3 0.3 1</specular>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>
