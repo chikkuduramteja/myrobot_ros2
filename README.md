@@ -65,7 +65,6 @@ cd ~/ros2_ws
 source /opt/ros/humble/setup.bash
 source install/setup.bash
 ros2 control list_controllers
-ros2 topic list
 ```
 
 Expected active controllers:
