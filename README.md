@@ -40,13 +40,6 @@ colcon build
 source install/setup.bash
 ```
 
-If scripts copied from Windows fail with `python3\r` or `$'\r'`, convert line endings and rebuild:
-
-```bash
-find ~/ros2_ws/src/myrobot_ros2 -type f \( -name "*.py" -o -name "*.sh" \) -exec sed -i 's/\r$//' {} \;
-colcon build
-source install/setup.bash
-```
 
 ## Launch The Demo
 
@@ -124,12 +117,6 @@ ros2 run myrobot_system_tests arm_gripper_loop_controller.py
 ```
 
 Stop with `Ctrl+C`.
-
-## C++ Motion Demo
-
-```bash
-ros2 run myrobot_system_tests arm_gripper_loop_controller
-```
 
 ## Demo Explanation
 
